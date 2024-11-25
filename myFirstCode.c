@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <string.h>
 
-typedef struct
+typedef struct 
 {
     char street[100];
     char city[100];
