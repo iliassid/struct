@@ -35,21 +35,19 @@ void ajouterTache() {
     if (nb_taches < MAX_TACHES) {
         printf("Entrez le titre de la tache: ");
         
-        scanf(" %[^\n]", taches[nb_taches].titre);
-        getchar();
+        scanf(" %99[^\n]", taches[nb_taches].titre);
 
         printf("Entrez la description de la tache: ");
         
-        scanf(" %[^\n]", taches[nb_taches].description);
-        getchar();
+        scanf(" %200[^\n]", taches[nb_taches].description);
 
         printf("Entrez la date d'echeance (JJ/MM/AAAA): ");
-        scanf(" %[^\n]", taches[nb_taches].date_echeance);
-        getchar();
+        scanf(" %20[^\n]", taches[nb_taches].date_echeance);
 
-        printf("Entrez la priorite (High/Low): ");
-        scanf(" %[^\n]", taches[nb_taches].priorite);
-        getchar();
+        do {
+            printf("Entrez la priorite (High/Low): ");
+            scanf(" %9s", taches[nb_taches].priorite);
+        } while (strcmp(taches[nb_taches].priorite, "High") != 0 && strcmp(taches[nb_taches].priorite, "Low") != 0);
 
         nb_taches++;
         printf("Tache ajoutee avec succes!\n");
@@ -86,19 +84,17 @@ void modifierTache() {
 
         printf("Entrez le nouveau titre: ");
         scanf(" %[^\n]", taches[index].titre);
-        getchar();
 
         printf("Entrez la nouvelle description: ");
         scanf(" %[^\n]", taches[index].description);
-        getchar();
 
         printf("Entrez la nouvelle date d'echeance (JJ/MM/AAAA): ");
         scanf(" %[^\n]", taches[index].date_echeance);
-        getchar();
 
-        printf("Entrez la nouvelle priorite (High/Low): ");
-        scanf(" %[^\n]", taches[index].priorite);
-        getchar();
+        do {
+            printf("Entrez la nouvelle priorite (High/Low): ");
+            scanf(" %9s", taches[nb_taches].priorite);
+        } while (strcmp(taches[nb_taches].priorite, "High") != 0 && strcmp(taches[nb_taches].priorite, "Low") != 0);
 
         printf("Tache modifiee avec succes!\n");
     } else {
