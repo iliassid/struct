@@ -9,7 +9,7 @@ typedef struct {
 }Taches;
 
 Taches tache[MAX_TACHE];
-int nb_taches = 0;
+int nb_tasks = 0;
 
 void tache_menu (){
     printf("Menu\n");
@@ -22,19 +22,19 @@ void tache_menu (){
     printf("Entrer votre choix:\n");
 }
 
-void ajouterTache () {
-    if (nb_taches<MAX_TACHE)
+void addTask () {
+    if (nb_tasks<MAX_TACHE)
     {
         printf("Ajouter une tache:\n");
         printf("Entrer le titre de la tache:\n");
-        scanf("%s", tache[nb_taches].titre);
+        scanf("%s", tache[nb_tasks].titre);
         printf("Entrer la description:\n");
-        scanf("%s", tache[nb_taches].description);
+        scanf("%s", tache[nb_tasks].description);
         printf("Entrer la date d'échéance:\n");
-        scanf("%s", tache[nb_taches].date);
+        scanf("%s", tache[nb_tasks].date);
         printf("Entrer la priorité(High, Low)\n");
-        scanf("%s", tache[nb_taches].priorite);
-        nb_taches++;
+        scanf("%s", tache[nb_tasks].priorite);
+        nb_tasks++;
         printf("Tâche ajoutée avec succès\n");
     }else{
         printf("Le nombre maximum de tâches a été atteint\n");
@@ -42,11 +42,11 @@ void ajouterTache () {
 }
 
 void ListDesTaches(){
-    if (nb_taches==0){
+    if (nb_tasks==0){
         printf("Aucune tâche à afficher.\n");
     }else{
         printf("La list des taches:");
-        for (int i = 0; i < nb_taches; i++)
+        for (int i = 0; i < nb_tasks; i++)
         {
             printf("taches numero :%d\n", i+1);
             printf("Le titre:%s\n", tache[i].titre);
@@ -58,11 +58,11 @@ void ListDesTaches(){
     } 
 
 }
-void modifierTache (){
+void editTask (){
     int index;
-    printf("Entrez le numero de la tache a modifier (1-%d):",nb_taches);
+    printf("Entrez le numero de la tache a modifier (1-%d):",nb_tasks);
     scanf("%d", &index);
-    if (index > 0 && index <= nb_taches){
+    if (index > 0 && index <= nb_tasks){
         index --;
         printf("Modifier la tache:\n", index+1);
         printf("entrer le nouveau titre:");
